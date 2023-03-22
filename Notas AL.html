@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Calculadora notas AL</title>
+	<style type="text/css">
+	input[type=text] {
+
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+}
+	</style>
+</head>
+<body>
+	 	<script>
+		  function calcularNota() {
+		  p1 = document.getElementById("p1")
+		  p2 = document.getElementById("p2")
+		  cuest = document.getElementById("cuest")
+		  EVC = document.getElementById("EVC")
+		  final = document.getElementById("final")
+		  nota = document.getElementById("nota")
+
+		  EVC.value = ((p1.value*0.35+p2.value*0.45)+(cuest.value*0.2)*10/15)/2
+		  nota.value = Number(final.value)+ EVC.value*(1-final.value/10)
+		  }
+    </script>
+	<form>
+		<label for="p1">Nota del primer parcial(sobre 10):</label><br>
+		<input type="text" id="p1"><br>
+		<label for="p2">Nota del Segundo parcial:(sobre 10)</label><br>
+		<input type="text" id="p2"><br>
+		<label for="cuest">Nota media de los cuestionarios(sobre 15):</label><br>
+		<input type="text" id="cuest"><br>
+		<label for="EVC">Nota de la evaluación contínua (sobre 5):</label><br>
+		<input type="text" id="EVC" disabled="disabled"><br>
+		<label for="final">Nota del examen final:</label><br>
+		<input type="text" id="final"><br>
+
+		<label for="nota">Nota final de la asignatura:</label><br>
+		<input type="text" id="nota" disabled="disabled"><br>
+
+        <input type="button" value="Calcular"  onclick="calcularNota();"/>
+	</form>
+	<p> <b> Explicación:</b> La nota del parcial es la mínima que obtienes siempre, a esa nota se le suma la nota EVC (calculada a partir de los parciales), la EVC tiene distintos valores dependiendo de lo que saques en el final, si sacas un 0 en el final la EVC vale <b>HASTA (MAXIMO) </b> 5 puntos, si sacas un 10 en el parcial la EVC vale 0 puntos, en general si la nota del final es x, la nota de la EVC vale  máximo (1-x)*5 puntos</p>
+	<h1>POR LO TANTO LA NOTA DE LOS PARCIALES SIEMPRE SUMA, A NO SER QUE SAQUES UN 10 EN EL FINAL, Y SI SACAS UN 10 EN EL FINAL NO CREO QUE TE MOLESTE IR A LOS PARCIALES ASÍ QUE VE Y RASCA TODO LO QUE PUEDAS</h1>
+</body>
+</html>
